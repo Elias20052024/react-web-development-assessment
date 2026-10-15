@@ -67,7 +67,7 @@ button {
 
 .content-row {
   display: grid;
-  grid-template-columns: 190px 240px 1fr;
+  grid-template-columns: 190px 240px minmax(0, 1fr);
   min-height: 520px;
 }
 
@@ -98,6 +98,7 @@ button {
 }
 
 .tree-panel {
+  min-width: 0;
   background: #f7f7f7;
   border-right: 1px solid #d8d8d8;
   padding: 16px 12px 12px 12px;
@@ -243,6 +244,7 @@ button {
 }
 
 .table-panel {
+  min-width: 0;
   background: #fafafa;
   padding: 16px 16px 10px 16px;
 }
@@ -257,12 +259,19 @@ button {
 .table-wrap {
   background: #fff;
   border: 1px solid #dfe2e5;
+  overflow-x: auto;
 }
 
 table {
   width: 100%;
+  min-width: 760px;
   border-collapse: collapse;
   table-layout: fixed;
+}
+
+th:last-child,
+td:last-child {
+  width: 150px;
 }
 
 th,
@@ -288,37 +297,38 @@ tbody tr:nth-child(even) {
   background: #fbfbfb;
 }
 
-.action-icons {
+.action-buttons {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 }
 
-.icon-btn {
-  width: 20px;
-  height: 20px;
+.action-btn {
   border: 1px solid #d4d4d4;
   border-radius: 4px;
   background: #fff;
-  display: inline-grid;
-  place-items: center;
-  font-size: 10px;
-  padding: 0;
+  padding: 4px 6px;
+  font-size: 11px;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
-.icon-btn.view {
+.action-btn.view {
   color: #1d6fe9;
   border-color: #cfe0ff;
+  background: #f3f8ff;
 }
 
-.icon-btn.edit {
+.action-btn.edit {
   color: #2f9e44;
   border-color: #ceebd4;
+  background: #f4fbf5;
 }
 
-.icon-btn.delete {
+.action-btn.delete {
   color: #d04444;
   border-color: #f0c7c7;
+  background: #fff7f7;
 }
 
 .table-footer {
@@ -399,4 +409,3 @@ tbody tr:nth-child(even) {
     width: 100%;
   }
 }
-
